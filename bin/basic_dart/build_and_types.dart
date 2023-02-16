@@ -1,3 +1,5 @@
+
+import 'package:characters/characters.dart';
 class BuildAndTypes {
   void booleans() {
     // Check for an empty string.
@@ -116,4 +118,99 @@ class BuildAndTypes {
     var isTrue4 = 3 ^ 4;
     print(isTrue4);
   }
+
+void list() {
+  var list = [1, 2, 3, 4, 5, 6, 7]; // list without type
+  print(list);
+  var list2 = [
+    'Car',
+    'Boat',
+    'Plane',
+  ];
+  print(list2);
+
+  var list3 = [1, 2, 3];
+  assert(list3.length == 3);
+  assert(list3[1] == 2);
+
+  list3[1] = 1;
+  assert(list3[1] ==
+      1); //Lists use zero-based indexing, where 0 is the index of the first value and list.length - 1 is the index of the last value. You can get a list’s length using the .length property and access a list’s values using the subscript operator ([]):
+
+  //To create a list that’s a compile-time constant, add const before the list literal:
+  var constantList = const [1, 2, 3, 4, 5, 6, 7];
+  // constantList[1] = 1; // This line will cause an error. because is const is immutable
+  print(constantList);
+
+  // List  + spread ...
+  var listOp = [1, 2, 3];
+  var listOp2 = [0, ...listOp];
+  assert(listOp2.length == 4);
+  print(listOp2);
+  // List Null Safety´
+  var listN;
+  var listNull = [0, ...?listN];
+  assert(listNull.length == 1);
+  print(listNull);
+}
+
+void collections(){
+//Dart also offers collection if and collection for, which you can use to build collections using conditionals (if) and repetition (for).
+  var promoActive = true;
+  var nav = ["Home", "Furniture", 'Plants', if (promoActive) 'Outlet'];
+  print(nav);
+  var listOfInts = [1, 2, 3];
+  var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+  assert(listOfStrings[1] == '#1');
+  print(listOfStrings);
+}
+
+
+void sets(){
+  var videogames = {'Ps5','Xbox,Ps4,Nintendo'};
+  print(videogames);
+
+  var elementos = <String>{};
+  elementos.add("Geladeira"); 
+  print(elementos);
+
+  elementos.addAll(videogames);
+  print(elementos);
+
+  //With Constants
+  final constantSet = const{
+    "Geladeira",
+    "Fogão",
+    "Xbox",
+    "Nintendo"
+  };
+  // constantSet.add('helium'); // This line will cause an error.
+
+}
+
+void maps(){
+  var produtos = {
+    "Geladeira" : "https://upload.wikimedia.org/wikipedia/",
+    "Fogão" : "https://upload.wikimedia.org/wikipedia/",
+    "Xbox" : "https://upload.wikimedia.org/wikipedia/",
+    "Nintendo" : "https://upload.wikimedia.org/wikipedia/"
+  };
+  print(produtos);
+
+  var prudutosComId = {
+    1: 'Geladeira',
+    2: 'Fogão',
+    3: 'Xbox',
+  };
+  print(prudutosComId);
+  
+    
+}
+
+void runnes(){
+  var hi = 'Hi 🇩🇰';
+  print(hi);
+  print('The end of the string: ${hi.substring(hi.length - 1)}');
+  print('The last character: ${hi.characters.last}');
+}
 }
